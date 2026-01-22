@@ -12,7 +12,7 @@ function searchPlaces() {
     let keyword = searchInput.value.toLowerCase().trim();
     resultsContainer.innerHTML = "";
 
-    fetch('travel_recommendation_api.json')
+    fetch('./travel_recommendation_api.json')
         .then(response => response.json()) // Convertimos la respuesta a JSON
         .then(data => {
             let results = [];
@@ -35,7 +35,7 @@ function searchPlaces() {
 
             // 5. MOSTRAR RESULTADOS
             if (results.length > 0) {
-                homeHero.style.display = 'none';
+                
                 results.forEach(place => {
                     
 
@@ -69,5 +69,5 @@ btnSearch.addEventListener("click",searchPlaces);
 btnReset.addEventListener("click", ()=> {
     searchInput.value = '';
     resultsContainer.innerHTML = "";
-    homeHero.style.display = 'flex';
+    
 })
